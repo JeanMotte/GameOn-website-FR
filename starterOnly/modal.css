@@ -527,3 +527,23 @@ footer {
   }
 }
 
+
+/* @keyframes modalclose {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+
+.bground.closing {
+  animation-name: modalclose;
+  animation-duration: var(--modal-duration);
+}
+
+.no-scroll {
+  overflow: hidden;
+} */
