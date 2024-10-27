@@ -15,28 +15,29 @@ const closeBtn = document.querySelector(".close");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-// closeBtn.addEventListener("click", closeModal);
+
+// close modal event
+closeBtn.addEventListener("click", closeModal);
 
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-  // modalbg.classList.remove("closing");
-  // document.body.classList.add("no-scroll");
+  modalbg.classList.remove("closing");
 }
 
-// function closeModal() {
-//   modalbg.classList.add("closing");
-//   setTimeout(() => {
-//     modalbg.style.display = "none";
-//     modalbg.classList.remove("closing");
-//     document.body.classList.remove("no-scroll");
-//   }, 800);
-// }
+// close modal form
+function closeModal() {
+  modalbg.classList.add("closing");
+  setTimeout(() => {
+    modalbg.style.display = "none";
+    modalbg.classList.remove("closing");
+  }, 800);
+}
 
-// document.addEventListener("keydown", (e) => {
-//   if (e.key === "Escape" && modalbg.style.display === "block") {
-//     closeModal()
-//   }
-// })
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modalbg.style.display === "block") {
+    closeModal()
+  }
+})
 
 

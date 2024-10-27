@@ -528,14 +528,13 @@ footer {
 }
 
 
-/* @keyframes modalclose {
+@keyframes modalclose {
   from {
     opacity: 1;
-    transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: translateY(-150px);
+    transform: translateY(150px);
   }
 }
 
@@ -543,7 +542,3 @@ footer {
   animation-name: modalclose;
   animation-duration: var(--modal-duration);
 }
-
-.no-scroll {
-  overflow: hidden;
-} */
