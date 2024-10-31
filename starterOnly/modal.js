@@ -110,7 +110,7 @@ function showSuccessMessage() {
   modalBody.innerHTML = `
     <p class="success-message">Merci pour votre inscription</p>
     <input
-      class="btn-submit button close-btn"
+      class="btn-style button close-btn"
       type="submit"
       value="Fermer"
     />
