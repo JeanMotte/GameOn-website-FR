@@ -75,7 +75,7 @@
                   required
                 />
                 <br>
-                <span class="error-message">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
+                <span class="error-message" id="alert-first-name">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
               </div>
               <div
                 class="formData">
@@ -88,6 +88,8 @@
                   minlength="2"
                   required
                 /><br>
+                <span class="error-message" id="alert-last-name">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
+
               </div>
               <div
                 class="formData">
@@ -99,6 +101,8 @@
                   name="email"
                   required
                 /><br>
+                <span class="error-message" id="alert-mail">Veuillez saisir un mail valide.</span>
+
               </div>
               <div
                 class="formData">
@@ -110,11 +114,15 @@
                   name="birthdate"
                   required
                 /><br>
+                <span class="error-message" id="alert-birthdate">Vous devez entrer votre date de naissance.</span>
+
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
+                <span class="error-message" id="alert-quantity">Vous devez indiquer le nombre de tournois déjà joués.</span>
+
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -184,7 +192,9 @@
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland</label
-                >
+                ><br>
+                <span class="error-message" id="alert-location">Vous devez choisir une option.</span>
+
               </div>
 
               <div
@@ -209,12 +219,18 @@
                 </label>
                 <br>
               </div>
-              <input
+              <button
                 class="btn-submit button"
                 type="submit"
-                value="C'est parti"
-              />
+              >C'est parti</button>
             </form>
+            <div class="thanks-modal">
+              <h2>Merci pour votre inscription</h2>
+              <button class="btn-close modal-btn" onclick="closeModal()">
+                Fermer
+              </button>
+            </div>
+          </div>
           </div>
         </div>
       </div>
