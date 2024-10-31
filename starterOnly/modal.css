@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   background-image: url("background.png");
+  /* background-image: url("bg_img.jpg"); */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -534,11 +535,29 @@ footer {
   }
   to {
     opacity: 0;
-    transform: translateY(150px);
+    transform: translateY(-150px);
   }
 }
 
 .bground.closing {
   animation-name: modalclose;
   animation-duration: var(--modal-duration);
+}
+
+.success-message {
+  font-size: 36px;
+  color: white;
+  font-weight: 400;
+  text-align: center;
+  /* margin-top: 20px; */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn {
+  /* bottom: 10px; */
+  margin-top: auto;
+  /* margin-bottom: 20px; */
 }
