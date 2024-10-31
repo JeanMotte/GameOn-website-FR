@@ -36,17 +36,19 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+    float: inline-start;
 }
+
+
 .main-navbar {
-    float: right;
+    float: inline-end;
 }
 .topnav a {
   float: left;
   display: block;
   color: #000000;
   text-align: center;
-  padding: 12px 12px;
+  padding: 12px 14px;
   margin: 5px;
   text-decoration: none;
   font-size: 20px;
@@ -56,13 +58,24 @@ img {
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
-  border-radius: 15px;
+  border-radius: 8px;
 }
+
+
+.main-navbar a:focus {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+  text-decoration-thickness: 1.3px;
+}
+
 
 .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
 .topnav .icon {
@@ -76,9 +89,24 @@ img {
     display: block;
     color: red;
   }
-}
+  
+  .topnav {
+    display: flex;
+    /* justify-content: center; */
+    /* align-content: center; */
+    justify-content: space-between;
+  }
+  .header-logo {
+    /* width: 40%; */
+    width: 130px;
+    display: flex;
+    align-items: center;
+  }
+  .header-logo img {
+    width: 100%;
+    padding-inline-end: 0;
+  }
 
-@media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -161,7 +189,7 @@ main {
   margin-top: 0.5em;
   padding: 1em;
   color: #fff;
-  border-radius: 15px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -225,6 +253,24 @@ input {
   font-size: 20px;
   height: 48px;
 }
+.text-control:invalid,
+.checkbox-input:invalid {
+  border: 1px solid red;
+  outline: none;
+}
+
+.error-message {
+  font-size: 0.8rem;
+  color: red;
+  /* display: none; */
+  margin-top: 5px;
+}
+
+.text-control:invalid + .error-message,
+.checkbox-input:invalid + .error-message {
+  display: block;
+}
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;

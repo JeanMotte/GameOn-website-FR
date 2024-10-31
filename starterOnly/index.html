@@ -14,15 +14,15 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="Logo.png"/>
     </div>
     <div class="main-navbar">
       
       <!-- <a href="#" class="active"><span>Accueil</span></a> -->
-      <a href="#"><span>Détails de l'évènement</span></a>
+      <a href="#"><span>Détails de l'événement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
+      <a href="#"><span>Événements passés</span></a>
       <a href="javascript:void(0);" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
       </a>
@@ -61,6 +61,7 @@
               action="index.html"
               method="get"
               onsubmit="return validate();"
+              novalidate
             >
               <div
                 class="formData">
@@ -71,7 +72,10 @@
                   id="first"
                   name="first"
                   minlength="2"
-                /><br>
+                  required
+                />
+                <br>
+                <span class="error-message">Veuillez entrer 2 caractères ou plus pour le champ du nom.</span>
               </div>
               <div
                 class="formData">
@@ -81,6 +85,8 @@
                   type="text"
                   id="last"
                   name="last"
+                  minlength="2"
+                  required
                 /><br>
               </div>
               <div
@@ -91,6 +97,7 @@
                   type="email"
                   id="email"
                   name="email"
+                  required
                 /><br>
               </div>
               <div
@@ -101,12 +108,13 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div

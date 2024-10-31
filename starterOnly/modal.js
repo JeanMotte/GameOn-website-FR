@@ -12,6 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
+const submitBtn = document.querySelector(".btn-submit");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -56,12 +57,12 @@ function validate() {
 
   // Error messages
   if (firstName.length < 2) {
-    alert("Prénom doit contenir au moins 2 caractères.")
+    alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.")
     return false
   }
 
   if (lastName.length < 2) {
-    alert("Nom doit contenir au moins 2 caractères.")
+    alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.")
     return false
   }
 
@@ -77,12 +78,17 @@ function validate() {
   }
 
   if (!locationChecked) {
-    alert("Veuillez sélectionner une localisation.")
+    alert("Vous devez choisir une option.")
     return false
   }
 
   if (!termsChecked) {
-    alert("Vous devez accepter les conditions d'utilisation.")
+    alert("Vous devez vérifier que vous acceptez les termes et conditions.")
+    return false
+  }
+
+  if (!birthdate) {
+    alert("Vous devez entrer votre date de naissance.")
     return false
   }
 
