@@ -272,7 +272,8 @@ input {
 #alert-last-name,
 #alert-email,
 #alert-birthdate,
-#alert-quantity {
+#alert-quantity,
+#alert-terms {
   font-size: 10px;
   color: #FF4E60;
   padding-top: 5px;

@@ -16,6 +16,7 @@ const emailError = document.getElementById("alert-email");
 const birthdateError = document.getElementById("alert-birthdate");
 const quantityError = document.getElementById("alert-quantity");
 const locationError = document.getElementById("alert-location");
+const termsError = document.getElementById("alert-terms");
 
 errorMessages.forEach((message) => {
     message.style.display = "none";
@@ -37,6 +38,7 @@ const checkNameField = (element) => {
             firstNameError.style.display = "block";
         if (element === lastName) 
             lastNameError.style.display = "block";
+        return false
     } else {
         element.style.borderColor = "";
         
@@ -45,6 +47,7 @@ const checkNameField = (element) => {
             firstNameError.style.display = "none";
         if (element === lastName) 
             lastNameError.style.display = "none";
+        return true
     }
 };
 
@@ -54,9 +57,11 @@ const checkEmailField = () => {
         email.style.borderColor = "#FF4E60";
         email.style.borderWidth = "2px";
         emailError.style.display = "block";
+        return false
     } else {
         email.style.borderColor = "";
         emailError.style.display = "none";
+        return true
     }
 }
 
@@ -75,9 +80,11 @@ const checkBirthdateField = (dateString) => {
         birthdate.style.borderColor = "#FF4E60";
         birthdate.style.borderWidth = "2px";
         birthdateError.style.display = "block";
+        return false
     } else {
         birthdate.style.borderColor = "";
         birthdateError.style.display = "none"
+        return true
     }
 }
 
@@ -86,9 +93,11 @@ const checkTournamentQuantity = (element) => {
         element.style.borderColor = "#FF4E60";
         element.style.borderWidth = "2px";
         quantityError.style.display = "block";
+        return false
     } else {
         element.style.borderColor = "";
         quantityError.style.display = "none";
+        return true
     }
 }
 
@@ -96,8 +105,24 @@ const checkLocationField = (locations) => {
     const isChecked = Array.from(locations).some(radioBtn => radioBtn.checked)
     if (!isChecked) {
         locationError.style.display = "block";
+        return false
     } else {
-        locationError.style.display = "none";}
+        locationError.style.display = "none";
+        return true
+    }
+}
+
+const checkTermsField = () => {
+    if (!termsChecked.checked) {
+        termsChecked.style.borderColor = "#FF4E60";
+        termsChecked.style.borderWidth = "2px";
+        termsError.style.display = "block";
+        return false
+    } else {
+        termsChecked.style.borderColor = "";
+        termsError.style.display = "none";
+        return true
+    }
 }
 
 firstName.addEventListener("input", () => checkNameField(firstName));
@@ -105,57 +130,52 @@ lastName.addEventListener("input", () => checkNameField(lastName));
 email.addEventListener("input", checkEmailField);
 birthdate.addEventListener("input", () => checkBirthdateField(birthdate.value));
 quantity.addEventListener("input", () => checkTournamentQuantity(quantity));
+termsChecked.addEventListener("change", checkTermsField);
 location.forEach((element) => {
-    element.addEventListener("input", () => {
-        if (element.checked) {
-            locationError.style.display = "none";
-        }
-    });
-})
+    element.addEventListener("change", () => checkLocationField(location)); 
+    }
+);
 
 form.addEventListener("submit", validate);
 
 function validate(event) {
-  event.preventDefault()
+    event.preventDefault()
 
-  // Error messages
-  if (firstName.length < 2) {
-    alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.")
-    return false
-  }
+    const isFirstNameValid = checkNameField(firstName);
+    const isLastNameValid = checkNameField(lastName);
+    const isEmailValid = checkEmailField();
+    const isBirthdateValid = checkBirthdateField(birthdate.value);
+    const isQuantityValid = checkTournamentQuantity(quantity);
+    const isLocationValid = checkLocationField(location);
+    const isTermsValid = checkTermsField();
 
-  if (lastName.length < 2) {
-    alert("Veuillez entrer 2 caractères ou plus pour le champ du nom, sans caractère spécial.")
-    return false
-  }
-
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  if (!emailPattern.test(email)) {
-    alert("Veuillez entrer un e-mail valide.")
-    return false
-  }
-
-  if (quantity === "" || isNaN(quantity)) {
-    alert("Veuillez entrer un nombre pour la quantité.")
-    return false
-  }
-
-  if (!location) {
-    alert("Vous devez choisir une option.")
-    return false
-  }
-
-  if (!termsChecked) {
-    alert("Vous devez vérifier que vous acceptez les termes et conditions.")
-    return false
-  }
-
-  if (!birthdate) {
-    alert("Vous devez entrer votre date de naissance.")
-    return false
-  }
-
-  // Display success message
-  showSuccessMessage()
-  return false // Prevents the default form submission for demonstration
+    if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityValid && isLocationValid && isTermsValid) {
+        return true && showSuccessMessage()
+    }
 }
+
+function showSuccessMessage() {
+    const modalBody = document.querySelector(".modal-body");
+    modalBody.style.height = "90vh";
+    modalBody.style.display = "flex";
+    modalBody.style.flexDirection = "column";
+    modalBody.style.alignItems = "center";
+    modalBody.style.justifyContent = "center";
+    modalBody.style.position = "relative";
+  
+    // Hide form elements
+    modalBody.innerHTML = `
+      <p class="success-message">Merci pour votre inscription</p>
+      <input
+        class="btn-style button close-btn"
+        type="submit"
+        value="Fermer"
+      />
+    `;
+  
+    // Retain the close functionality for the modal
+    const closeBtn = document.querySelector(".close");
+    const closeBtn2 = document.querySelector(".close-btn");
+    closeBtn.addEventListener("click", closeModal);
+    closeBtn2.addEventListener("click", closeModal);
+  }
