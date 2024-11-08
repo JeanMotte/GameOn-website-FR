@@ -1,17 +1,21 @@
 // Form selectors
+const form = document.querySelector('form')
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const termsChecked = document.getElementById("checkbox1");
-const locationChecked = document.querySelectorAll('input[name="location"]');
+const location = document.querySelectorAll('input[name="location"]');
 const errorMessages = document.querySelectorAll(".error-message");
 
 // Error message selectors
 const firstNameError = document.getElementById("alert-first-name");
 const lastNameError = document.getElementById("alert-last-name");
 const emailError = document.getElementById("alert-email");
+const birthdateError = document.getElementById("alert-birthdate");
+const quantityError = document.getElementById("alert-quantity");
+const locationError = document.getElementById("alert-location");
 
 errorMessages.forEach((message) => {
     message.style.display = "none";
@@ -24,7 +28,8 @@ const checkNameField = (element) => {
     const validPattern = /^[a-zA-Z]{2,}$/;
 
     if (!validPattern.test(element.value)) {
-        element.style.borderColor = "red";
+        element.style.borderColor = "#FF4E60";
+        element.style.borderWidth = "2px";
         element.style.fontSize = "20px";
         
         // Display the appropriate error message
@@ -46,8 +51,8 @@ const checkNameField = (element) => {
 const checkEmailField = () => {
     const validPattern = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
     if (!validPattern.test(email.value)) {
-        email.style.borderColor = "red";
-        email.style.fontSize = "20px";
+        email.style.borderColor = "#FF4E60";
+        email.style.borderWidth = "2px";
         emailError.style.display = "block";
     } else {
         email.style.borderColor = "";
@@ -55,10 +60,60 @@ const checkEmailField = () => {
     }
 }
 
+const checkBirthdateField = (dateString) => {
+    const birthdateDate = new Date(dateString);
+    const today = new Date();
+
+    let age = today.getFullYear() - birthdateDate.getFullYear();
+    const monthDifference = today.getMonth() - birthdateDate.getMonth();
+    const dayDifference = today.getDate() - birthdateDate.getDate();
+
+    if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0))
+        age--;
+
+    if (age < 18 || age >= 100) {
+        birthdate.style.borderColor = "#FF4E60";
+        birthdate.style.borderWidth = "2px";
+        birthdateError.style.display = "block";
+    } else {
+        birthdate.style.borderColor = "";
+        birthdateError.style.display = "none"
+    }
+}
+
+const checkTournamentQuantity = (element) => {
+    if (element.value < 0 || element.value > 100) {
+        element.style.borderColor = "#FF4E60";
+        element.style.borderWidth = "2px";
+        quantityError.style.display = "block";
+    } else {
+        element.style.borderColor = "";
+        quantityError.style.display = "none";
+    }
+}
+
+const checkLocationField = (locations) => {
+    const isChecked = Array.from(locations).some(radioBtn => radioBtn.checked)
+    if (!isChecked) {
+        locationError.style.display = "block";
+    } else {
+        locationError.style.display = "none";}
+}
+
 firstName.addEventListener("input", () => checkNameField(firstName));
 lastName.addEventListener("input", () => checkNameField(lastName));
 email.addEventListener("input", checkEmailField);
+birthdate.addEventListener("input", () => checkBirthdateField(birthdate.value));
+quantity.addEventListener("input", () => checkTournamentQuantity(quantity));
+location.forEach((element) => {
+    element.addEventListener("input", () => {
+        if (element.checked) {
+            locationError.style.display = "none";
+        }
+    });
+})
 
+form.addEventListener("submit", validate);
 
 function validate(event) {
   event.preventDefault()
@@ -85,7 +140,7 @@ function validate(event) {
     return false
   }
 
-  if (!locationChecked) {
+  if (!location) {
     alert("Vous devez choisir une option.")
     return false
   }

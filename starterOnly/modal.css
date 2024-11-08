@@ -241,10 +241,13 @@ main {
 
 label, .text-label {
   font-family: var(--font-default);
-  font-size: 17px !important;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: justify;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  padding-left: 0;
 }
 input {
   padding: 8px;
@@ -256,7 +259,7 @@ input {
   padding: 8px;
   width: 100%;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 18px !important;
   height: 48px;
 }
 /* .text-control:invalid,
@@ -267,10 +270,11 @@ input {
 
 #alert-first-name,
 #alert-last-name,
-#alert-email {
-  font-size: 0.8rem;
-  color: red;
-  /* display: none; */
+#alert-email,
+#alert-birthdate,
+#alert-quantity {
+  font-size: 10px;
+  color: #FF4E60;
   padding-top: 5px;
 }
 
@@ -477,10 +481,6 @@ input[data-error]::after {
   background-color: rgba(0, 0, 0, 0.1);
 }
 /* custom select end */
-.text-label {
-  font-weight: normal;
-  font-size: 16px;
-}
 .hero-section {
   min-height: 93vh;
   border-radius: 10px;
