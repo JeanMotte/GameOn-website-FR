@@ -1,3 +1,5 @@
+import { closeModal } from "./modal.js";
+
 // Form selectors
 const form = document.querySelector('form')
 const firstName = document.getElementById("first");
@@ -89,7 +91,7 @@ const checkBirthdateField = (dateString) => {
 }
 
 const checkTournamentQuantity = (element) => {
-    if (element.value < 0 || element.value > 100) {
+    if (element.value < 0 || element.value > 100 || element.value === "") {
         element.style.borderColor = "#FF4E60";
         element.style.borderWidth = "2px";
         quantityError.style.display = "block";
@@ -156,7 +158,7 @@ function validate(event) {
 
 function showSuccessMessage() {
     const modalBody = document.querySelector(".modal-body");
-    modalBody.style.height = "90vh";
+    modalBody.style.height = "calc(100vh - 100px)";
     modalBody.style.display = "flex";
     modalBody.style.flexDirection = "column";
     modalBody.style.alignItems = "center";
@@ -179,3 +181,5 @@ function showSuccessMessage() {
     closeBtn.addEventListener("click", closeModal);
     closeBtn2.addEventListener("click", closeModal);
   }
+
+  

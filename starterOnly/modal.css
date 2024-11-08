@@ -133,7 +133,7 @@ img {
 
 
 
- @media screen and (max-width: 540px) {
+ @media screen and (max-width: 480px) {
   .topnav.responsive {
     position: relative;
   }
@@ -150,6 +150,47 @@ img {
     display: block;
     text-align: left;
   }
+
+  .hero-headline {
+    font-size: clamp(20px, 9vw, 40px) !important;
+    padding-inline: 0 !important;
+    font-weight: 600 !important;
+  }
+
+  .hero-content {
+    padding-inline: 0 !important;
+  }
+
+  .header-logo {
+    margin-inline-start: 15px;
+  }
+
+  .hero-text {
+    margin-top: 20px !important;
+    font-size: 14px !important;
+  }
+
+  .hero-img img {
+    margin-top: 20px !important;
+  }
+
+  .copyrights {
+    margin-top: 0 !important;
+  }
+
+  .btn-signup {
+    margin-top: 40px !important
+  }
+
+  .content {
+    height: calc(100vh - 80px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: auto !important;
+    top: 80px !important;
+    position: fixed !important;
+    border-radius: 10px 10px 0 0 !important;
+  }
 }
 
 main {
@@ -159,11 +200,9 @@ main {
   padding-top: 0.5vw;
   padding-left: 2vw;
   padding-right: 2vw;
-  margin: 1px 20px 15px;
+  margin: 0px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -176,6 +215,7 @@ main {
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .modal-btn:hover {
@@ -198,7 +238,9 @@ main {
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
+  transition: all 0.3s ease-in-out;
 }
+
 
 .button:hover {
   background: #3876ac;
@@ -223,7 +265,7 @@ main {
 .content {
   margin: 5% auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -232,6 +274,7 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  /* height: fit-content; */
 }
 
 .modal-body {
@@ -403,6 +446,8 @@ input[data-error]::after {
 .close:after {
   transform: rotate(-45deg);
 }
+
+
 .btn-style,
 .btn-signup {
   background: #fe142f;
@@ -416,6 +461,9 @@ input[data-error]::after {
   border: 0;
 }
 /* custom select styles */
+.btn-style {
+  margin-top: 10px;
+}
 .custom-select {
   position: relative;
   font-family: Arial;
@@ -519,7 +567,7 @@ input[data-error]::after {
   white-space: nowrap;
 }
 .hero-text {
-  width: 146%;
+  width: 85vw;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -556,7 +604,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -577,7 +625,7 @@ footer {
     white-space: normal;
   }
   .hero-text {
-    width: unset;
+    /* width: unset; */
     font-size: 1.5rem;
   }
   .hero-img img {
