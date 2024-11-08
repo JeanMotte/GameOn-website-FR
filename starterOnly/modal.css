@@ -69,6 +69,14 @@ img {
   text-decoration-thickness: 1.3px;
 }
 
+.main-navbar a:hover {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
 
 .topnav a.active {
   background-color: #ff0000;
@@ -231,9 +239,9 @@ main {
   margin: 15px auto;
 }
 
-label {
+label, .text-label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 17px !important;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
@@ -251,17 +259,19 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.text-control:invalid,
+/* .text-control:invalid,
 .checkbox-input:invalid {
   border: 1px solid red;
   outline: none;
-}
+} */
 
-.error-message {
+#alert-first-name,
+#alert-last-name,
+#alert-email {
   font-size: 0.8rem;
   color: red;
   /* display: none; */
-  margin-top: 5px;
+  padding-top: 5px;
 }
 
 .text-control:invalid + .error-message,
@@ -271,7 +281,7 @@ input {
 
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  /* font-size: 0.4em;
   color: #e54858;
   display: block;
   margin-top: 7px;
@@ -279,13 +289,13 @@ input {
   text-align: right;
   line-height: 0.3;
   opacity: 0;
-  transition: 0.3s;
+  transition: 0.3s; */
 }
 .formData[data-error-visible="true"]::after {
   opacity: 1;
 }
 .formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
+  /* border: 2px solid #e54858; */
 }
 /* 
 input[data-error]::after {
