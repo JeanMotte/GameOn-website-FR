@@ -1,5 +1,14 @@
 import "./form.js";
-import "./functions.js";
+
+const menu = document.getElementById("menu-item");
+menu.addEventListener("click", editNav);
+
+function editNav() {
+  var x = document.getElementById("myTopnav");
+  x.className = (x.className === "topnav") ? "topnav responsive" : "topnav";
+}
+
+
 
 // DOM Elements
 const modalBtn = document.querySelectorAll(".btn-signup");
