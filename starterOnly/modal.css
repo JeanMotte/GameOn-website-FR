@@ -20,6 +20,13 @@ body {
   margin: 0 auto;
 }
 
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+
+
 p {
   margin-bottom: 0;
   padding: 0.5vw;
@@ -89,15 +96,15 @@ img {
     align-items: flex-start;
   }
 
-  /* .header-logo {
-    align-items: flex-start;
-  } */
 
   .main-navbar a:not(.icon) {
     margin-right: 50px;
+    /* font-size: clamp(10px, 3vw, 20px); */
+    font-size: 16px;
   }
   .topnav a {
     display: none;
+    margin-block-end: 0px;
   }
 
   .topnav a.icon {
@@ -596,6 +603,15 @@ footer {
   margin: 0 20px;
 }
 @media screen and (max-width: 1024px) {
+
+  .topnav a:not(.icon) {
+    font-size: clamp(10px, 2vw, 20px);
+  }
+
+  .header-logo img {
+    width: 150px;
+  }
+
   .hero-section {
     display: block;
     box-shadow: unset;
