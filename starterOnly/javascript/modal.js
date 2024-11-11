@@ -28,12 +28,17 @@ export function launchModal() {
   document.getElementById("first").focus();
 }
 
+// export function closeModal() {
+//   modalbg.classList.add("closing");
+//   setTimeout(() => {
+//     modalbg.style.display = "none";
+//     modalbg.classList.remove("closing");
+//   }, 800);
+// }
 export function closeModal() {
   modalbg.classList.add("closing");
-  setTimeout(() => {
     modalbg.style.display = "none";
     modalbg.classList.remove("closing");
-  }, 800);
 }
 
 document.addEventListener("keydown", (e) => {

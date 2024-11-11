@@ -10,6 +10,11 @@ const quantity = document.getElementById("quantity");
 const termsChecked = document.getElementById("checkbox1");
 const location = document.querySelectorAll('input[name="location"]');
 const errorMessages = document.querySelectorAll(".error-message");
+const modalSuccess = document.querySelector(".modal-success");
+const modalBody = document.querySelector(".modal-body");
+const formWrapper = document.querySelector(".form-wrapper");
+
+modalSuccess.style.display = "none";
 
 // Error message selectors
 const firstNameError = document.getElementById("alert-first-name");
@@ -152,34 +157,23 @@ function validate(event) {
     const isTermsValid = checkTermsField();
 
     if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityValid && isLocationValid && isTermsValid) {
-        return true && showSuccessMessage()
+        formWrapper.style.display = "none";
+        modalSuccess.style.display = "flex";
+        form.reset();
     }
 }
 
-function showSuccessMessage() {
-    const modalBody = document.querySelector(".modal-body");
-    modalBody.style.height = "calc(100vh - 100px)";
-    modalBody.style.display = "flex";
-    modalBody.style.flexDirection = "column";
-    modalBody.style.alignItems = "center";
-    modalBody.style.justifyContent = "center";
-    modalBody.style.position = "relative";
-  
-    // Hide form elements
-    modalBody.innerHTML = `
-      <p class="success-message">Merci pour votre inscription</p>
-      <input
-        class="btn-style button close-btn"
-        type="submit"
-        value="Fermer"
-      />
-    `;
-  
-    // Retain the close functionality for the modal
-    const closeBtn = document.querySelector(".close");
-    const closeBtn2 = document.querySelector(".close-btn");
-    closeBtn.addEventListener("click", closeModal);
-    closeBtn2.addEventListener("click", closeModal);
-  }
 
-  
+// close success modal
+
+document.querySelector(".close-btn-success").addEventListener("click", () => {
+    modalSuccess.style.display = "none"
+    formWrapper.style.display = "flex"
+    closeModal()
+});
+
+const closeBtn = document.querySelector(".close");
+const closeBtn2 = document.querySelector(".close-btn");
+if (closeBtn) closeBtn.addEventListener("click", closeModal);
+if (closeBtn2) closeBtn2.addEventListener("click", closeModal);
+ 

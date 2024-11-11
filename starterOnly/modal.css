@@ -255,6 +255,23 @@ main {
   font-size: 16px;
 }
 
+.modal-success {
+  display: none;
+  margin: 5% auto;
+  width: 100%;
+  max-width: 480px;
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .bground {
   display: none;
   position: fixed;
@@ -279,7 +296,6 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
-  /* height: fit-content; */
 }
 
 .modal-body {
@@ -691,11 +707,8 @@ footer {
   color: white;
   font-weight: 400;
   text-align: center;
-  /* margin-top: 20px; */
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 20px;
+  margin-inline: 10px;
 }
 
 .close-btn {
