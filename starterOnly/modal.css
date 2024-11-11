@@ -154,6 +154,15 @@ img {
     width: 100% !important;
   }
 
+  .success-message {
+    font-size: 36px;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 20px;
+    margin-inline: 20px;
+  }
+
   .hero-content {
     min-width: 100% !important;
   }
@@ -187,7 +196,7 @@ img {
     width: 60%  !important;
   }
 
-  .content {
+  .content, .modal-success {
     height: calc(100vh - 80px) !important;
     margin: 0 !important;
     padding: 0 !important;

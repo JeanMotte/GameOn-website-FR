@@ -165,7 +165,6 @@ function validate(event) {
 
 
 // close success modal
-
 document.querySelector(".close-btn-success").addEventListener("click", () => {
     modalSuccess.style.display = "none"
     formWrapper.style.display = "flex"
