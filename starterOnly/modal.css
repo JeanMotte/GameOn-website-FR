@@ -53,6 +53,7 @@ img {
   font-size: 20px;
 }
 
+
 .topnav a {
   display: block;
   color: #000000;
@@ -70,7 +71,7 @@ img {
 }
 
 
-.main-navbar a:focus {
+.main-navbar:not(.icon) a:focus {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 8px;
@@ -99,7 +100,6 @@ img {
 
   .main-navbar a:not(.icon) {
     margin-right: 50px;
-    /* font-size: clamp(10px, 3vw, 20px); */
     font-size: 16px;
   }
   .topnav a {
@@ -109,6 +109,7 @@ img {
 
   .topnav a.icon {
     display: block;
+    color: #FF4E60;
   }
   
   .topnav {
@@ -133,13 +134,23 @@ img {
     top: 0;
   }
 
-  .topnav .icon:focus {
-    color: black;
-  }
-  
   .topnav.responsive a {
     display: block;
     text-align: left;
+  }
+
+  .hero-headline {
+    font-size: 42px !important;
+    padding-inline: 0 !important;
+    font-weight: 600 !important;
+    white-space: normal !important;
+    width: 100%;
+  }
+
+  .hero-text {
+    margin-top: 20px !important;
+    font-size: 21px !important;
+    width: 100% !important;
   }
 }
 
@@ -151,17 +162,19 @@ img {
     padding-inline: 0 !important;
     font-weight: 600 !important;
     white-space: normal !important;
-    width: 100% !important;
+    width: 100%;
+  }
+  
+  /* .topnav a.icon {
+    padding-inline: 2px;
+    padding-block: 2px;
+    margin: 0;
+  } */
+
+  .main-navbar:not(.icon) a:focus {
+    text-underline-offset: 0.1rem;
   }
 
-  .success-message {
-    font-size: 36px;
-    color: white;
-    font-weight: 400;
-    text-align: center;
-    margin-top: 20px;
-    margin-inline: 20px;
-  }
 
   .hero-content {
     min-width: 100% !important;
@@ -179,6 +192,10 @@ img {
 
   .header-logo {
     margin-inline-end: 15px !important;
+  }
+
+  .header-logo img {
+    width: 131px!important;
   }
 
   .hero-img img {
@@ -202,7 +219,7 @@ img {
     padding: 0 !important;
     overflow-y: auto !important;
     top: 80px !important;
-    position: fixed !important;
+    position: relative !important;
     border-radius: 10px 10px 0 0 !important;
   }
 }
@@ -278,8 +295,10 @@ main {
   height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 }
+
+
 
 .bground {
   display: none;
@@ -462,6 +481,8 @@ input[data-error]::after {
   transform: scale(0.7);
   z-index: 10;
 }
+
+
 .close:before,
 .close:after {
   position: absolute;
@@ -478,6 +499,33 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 
+.cross-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+  z-index: 10;
+}
+
+.cross-close:before,
+.cross-close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.cross-close:before {
+  transform: rotate(45deg);
+}
+.cross-close:after {
+  transform: rotate(-45deg);
+}
 
 .btn-style,
 .btn-signup {
@@ -711,17 +759,18 @@ footer {
   animation-duration: var(--modal-duration);
 }
 
+
 .success-message {
   font-size: 36px;
   color: white;
   font-weight: 400;
   text-align: center;
-  margin-top: 20px;
+  margin-bottom: 20px;
   margin-inline: 10px;
 }
 
-.close-btn {
-  /* bottom: 10px; */
-  margin-top: auto;
-  /* margin-bottom: 20px; */
+.close-btn-success-wrapper {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
 }

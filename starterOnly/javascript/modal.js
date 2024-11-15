@@ -12,8 +12,6 @@ function editNav() {
 
 // DOM Elements
 const modalBtn = document.querySelectorAll(".btn-signup");
-const formData = document.querySelectorAll(".formData");
-const submitBtn = document.querySelector(".btn-submit");
 const modalbg = document.querySelector(".bground");
 const closeBtn = document.querySelector(".close");
 
@@ -28,22 +26,41 @@ export function launchModal() {
   document.getElementById("first").focus();
 }
 
+// close modal
 export function closeModal() {
   modalbg.classList.add("closing");
     modalbg.style.display = "none";
     modalbg.classList.remove("closing");
 }
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modalbg.style.display === "block") {
+const modalSuccess = document.querySelector(".modal-success");
+const formWrapper = document.querySelector(".form-wrapper");
+const form = document.querySelector('form');
+
+const closeBtnSuccess = document.querySelectorAll(".close-btn-success");
+closeBtnSuccess.forEach(btn => btn.addEventListener("click", () => {
+    modalSuccess.style.display = "none"
+    formWrapper.style.display = "flex"
     closeModal()
+}));
+
+// close form (not success) modal
+const closeBtns = document.querySelectorAll(".close");
+if (closeBtns) 
+    closeBtns.forEach(btn => {btn.addEventListener("click", closeModal);});
+
+ 
+// escape key closing modal
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    // Check if the success modal is visible
+    if (modalSuccess.style.display === "flex") {
+      form.reset();
+      modalSuccess.style.display = "none";
+      formWrapper.style.display = "flex";
+      closeModal()
+    } else if (modalbg.style.display === "block") {
+      closeModal();
+    }
   }
-})
-
-
-
-
-
-
-
-
+});

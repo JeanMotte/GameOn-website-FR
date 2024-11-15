@@ -1,5 +1,3 @@
-import { closeModal } from "./modal.js";
-
 // Form selectors
 const form = document.querySelector('form')
 const firstName = document.getElementById("first");
@@ -13,6 +11,7 @@ const errorMessages = document.querySelectorAll(".error-message");
 const modalSuccess = document.querySelector(".modal-success");
 const modalBody = document.querySelector(".modal-body");
 const formWrapper = document.querySelector(".form-wrapper");
+
 
 modalSuccess.style.display = "none";
 
@@ -83,7 +82,7 @@ const checkBirthdateField = (dateString) => {
     if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0))
         age--;
 
-    if (age < 18 || age >= 100) {
+    if (age < 18 || age >= 100 || dateString === "") {
         birthdate.style.borderColor = "#FF4E60";
         birthdate.style.borderWidth = "2px";
         birthdateError.style.display = "block";
@@ -162,17 +161,3 @@ function validate(event) {
         form.reset();
     }
 }
-
-
-// close success modal
-document.querySelector(".close-btn-success").addEventListener("click", () => {
-    modalSuccess.style.display = "none"
-    formWrapper.style.display = "flex"
-    closeModal()
-});
-
-const closeBtn = document.querySelector(".close");
-const closeBtn2 = document.querySelector(".close-btn");
-if (closeBtn) closeBtn.addEventListener("click", closeModal);
-if (closeBtn2) closeBtn2.addEventListener("click", closeModal);
- 
