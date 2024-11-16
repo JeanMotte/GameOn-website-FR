@@ -37,20 +37,20 @@ const checkNameField = (element) => {
         element.style.borderColor = "#FF4E60";
         element.style.borderWidth = "2px";
         element.style.fontSize = "20px";
-        
+
         // Display the appropriate error message
-        if (element === firstName) 
+        if (element === firstName)
             firstNameError.style.display = "block";
-        if (element === lastName) 
+        if (element === lastName)
             lastNameError.style.display = "block";
         return false
     } else {
         element.style.borderColor = "";
-        
+
         // Hide error messages
-        if (element === firstName) 
+        if (element === firstName)
             firstNameError.style.display = "none";
-        if (element === lastName) 
+        if (element === lastName)
             lastNameError.style.display = "none";
         return true
     }
@@ -132,8 +132,8 @@ birthdate.addEventListener("input", () => checkBirthdateField(birthdate.value));
 quantity.addEventListener("input", () => checkTournamentQuantity(quantity));
 termsChecked.addEventListener("change", checkTermsField);
 location.forEach((element) => {
-    element.addEventListener("change", () => checkLocationField(location)); 
-    }
+    element.addEventListener("change", () => checkLocationField(location));
+}
 );
 
 form.addEventListener("submit", validate);
@@ -151,16 +151,16 @@ function validate(event) {
 
     // collect user inputs
     const formInputs = {
-    "First Name": firstName.value,
-    "Last Name": lastName.value,
-    "Email": email.value,
-    "Birthdate": birthdate.value,
-    "Tournament Quantity": quantity.value,
-    "Location": Array.from(location)
-        .find(radioBtn => radioBtn.checked)?.value,
-    "Terms Accepted": termsChecked.checked ? "Yes" : "No",
+        "First Name": firstName.value,
+        "Last Name": lastName.value,
+        "Email": email.value,
+        "Birthdate": birthdate.value,
+        "Tournament Quantity": quantity.value,
+        "Location": Array.from(location)
+            .find(radioBtn => radioBtn.checked)?.value,
+        "Terms Accepted": termsChecked.checked ? "Yes" : "No",
     };
-    
+
     if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityValid && isLocationValid && isTermsValid) {
         // Log the user inputs
         console.group("Form Submission");

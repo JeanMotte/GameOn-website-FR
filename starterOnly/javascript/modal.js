@@ -29,8 +29,8 @@ export function launchModal() {
 // close modal
 export function closeModal() {
   modalbg.classList.add("closing");
-    modalbg.style.display = "none";
-    modalbg.classList.remove("closing");
+  modalbg.style.display = "none";
+  modalbg.classList.remove("closing");
 }
 
 const modalSuccess = document.querySelector(".modal-success");
@@ -39,17 +39,17 @@ const form = document.querySelector('form');
 
 const closeBtnSuccess = document.querySelectorAll(".close-btn-success");
 closeBtnSuccess.forEach(btn => btn.addEventListener("click", () => {
-    modalSuccess.style.display = "none"
-    formWrapper.style.display = "flex"
-    closeModal()
+  modalSuccess.style.display = "none"
+  formWrapper.style.display = "flex"
+  closeModal()
 }));
 
 // close form (not success) modal
 const closeBtns = document.querySelectorAll(".close");
-if (closeBtns) 
-    closeBtns.forEach(btn => {btn.addEventListener("click", closeModal);});
+if (closeBtns)
+  closeBtns.forEach(btn => { btn.addEventListener("click", closeModal); });
 
- 
+
 // escape key closing modal
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
