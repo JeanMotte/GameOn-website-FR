@@ -108,10 +108,9 @@ const checkTournamentQuantity = (element) => {
 }
 
 const checkLocationField = (locations) => {
-    const isChecked = Array.from(locations).some(radioBtn => radioBtn.checked);
-    console.log(isChecked);
-    locationError.style.display = isChecked ? "none" : "block";
-    return isChecked ? true : false;
+    const isChecked = Array.from(locations).some(radioBtn => radioBtn.checked)
+    locationError.style.display = isChecked ? "none" : "block"
+    return isChecked
 };
 
 const checkTermsField = () => {
