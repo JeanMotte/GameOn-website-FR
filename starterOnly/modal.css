@@ -364,14 +364,6 @@ input {
   text-align: left;
 }
 
-.formData[data-error]::after {
-  content: attr(data-error);
-}
-
-.formData[data-error-visible="true"]::after {
-  opacity: 1;
-}
-
 .checkbox-label,
 .checkbox2-label {
   position: relative;
