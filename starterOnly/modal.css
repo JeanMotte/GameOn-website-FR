@@ -358,7 +358,8 @@ input {
 #alert-email,
 #alert-birthdate,
 #alert-quantity,
-#alert-terms {
+#alert-terms,
+#alert-location {
   font-size: 10px;
   color: #FF4E60;
   padding-top: 5px;
