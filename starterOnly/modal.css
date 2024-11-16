@@ -38,7 +38,6 @@ img {
 }
 
 .topnav {
-  overflow: hidden;
   margin: 20px;
   margin-block: 15px;
   display: flex;
@@ -77,7 +76,7 @@ img {
   color: #ffffff;
   border-radius: 8px;
   text-decoration: underline;
-  text-underline-offset: 0.4rem;
+  text-underline-offset: 0.3rem;
   text-decoration-thickness: 1.3px;
 }
 
@@ -93,6 +92,11 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+
+  .navbar-span {
+    display: none !important;
+  }
+
   .main-navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -158,6 +162,10 @@ img {
 
 
  @media screen and (max-width: 480px) {
+
+  .topnav.responsive .navbar-span {
+    display:block !important;
+  }
   .hero-headline {
     font-size: clamp(25px, 3vw, 40px) !important;
     padding-inline: 0 !important;
@@ -165,12 +173,6 @@ img {
     white-space: normal !important;
     width: 100%;
   }
-  
-  /* .topnav a.icon {
-    padding-inline: 2px;
-    padding-block: 2px;
-    margin: 0;
-  } */
 
   .main-navbar:not(.icon) a:focus {
     text-underline-offset: 0.1rem;
@@ -227,8 +229,6 @@ main {
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
-  /* padding-left: 2vw;
-  padding-right: 2vw; */
   margin: 0px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
@@ -352,11 +352,6 @@ input {
   font-size: 18px !important;
   height: 48px;
 }
-/* .text-control:invalid,
-.checkbox-input:invalid {
-  border: 1px solid red;
-  outline: none;
-} */
 
 #alert-first-name,
 #alert-last-name,
@@ -380,28 +375,12 @@ input {
 
 .formData[data-error]::after {
   content: attr(data-error);
-  /* font-size: 0.4em;
-  color: #e54858;
-  display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: right;
-  line-height: 0.3;
-  opacity: 0;
-  transition: 0.3s; */
 }
+
 .formData[data-error-visible="true"]::after {
   opacity: 1;
 }
-.formData[data-error-visible="true"] .text-control {
-  /* border: 2px solid #e54858; */
-}
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -570,10 +549,13 @@ input[data-error]::after {
   border-radius: 5px 0 5px 0;
 }
 
-/* Point the arrow upwards when the select box is open (active): */
 .select-selected.select-arrow-active:after {
   transform: rotate(135deg);
   top: 13px;
+}
+
+.navbar-span {
+  visibility: hidden;
 }
 
 .select-items div,
@@ -645,7 +627,6 @@ input[data-error]::after {
   width: 300%;
 }
 .hero-text {
-  /* width: 150%; */
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -715,7 +696,6 @@ footer {
     width: 100%;
   }
   .hero-text {
-    /* width: unset; */
     font-size: 26px;
   }
   .hero-img img {
