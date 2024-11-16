@@ -12,7 +12,6 @@ const modalSuccess = document.querySelector(".modal-success");
 const modalBody = document.querySelector(".modal-body");
 const formWrapper = document.querySelector(".form-wrapper");
 
-
 modalSuccess.style.display = "none";
 
 // Error message selectors
@@ -150,7 +149,26 @@ function validate(event) {
     const isLocationValid = checkLocationField(location);
     const isTermsValid = checkTermsField();
 
+    // collect user inputs
+    const formInputs = {
+    "First Name": firstName.value,
+    "Last Name": lastName.value,
+    "Email": email.value,
+    "Birthdate": birthdate.value,
+    "Tournament Quantity": quantity.value,
+    "Location": Array.from(location)
+        .find(radioBtn => radioBtn.checked)?.value,
+    "Terms Accepted": termsChecked.checked ? "Yes" : "No",
+    };
+    
     if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityValid && isLocationValid && isTermsValid) {
+        // Log the user inputs
+        console.group("Form Submission");
+        console.log("Form Inputs:");
+        console.table(formInputs);
+        console.groupEnd();
+
+        // Display the success modal and reset form
         formWrapper.style.display = "none";
         modalSuccess.style.display = "flex";
         form.reset();
