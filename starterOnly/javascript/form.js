@@ -164,7 +164,6 @@ function validate(event) {
     if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityValid && isLocationValid && isTermsValid) {
         // Log the user inputs
         console.group("Form Submission");
-        console.log("Form Inputs:");
         console.table(formInputs);
         console.groupEnd();
 
