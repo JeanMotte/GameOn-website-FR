@@ -36,7 +36,6 @@ const checkNameField = (element) => {
     if (!validPattern.test(element.value)) {
         element.style.borderColor = "#FF4E60";
         element.style.borderWidth = "2px";
-        element.style.fontSize = "20px";
 
         // Display the appropriate error message
         if (element === firstName)
